@@ -12,7 +12,7 @@
 
 <script>
 import { ref, onMounted } from "vue";
-import InitialPageContent from "../molecules/InitialPageContent.vue";
+import InitialPageContent from "../molecules/initial/InitialContent.vue";
 
 export default {
   name: "HomePage",

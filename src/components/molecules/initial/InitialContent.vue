@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import ProjectIcon from "../atoms/ProjectIcon.vue";
-import ProjectName from "../atoms/ProjectName.vue";
+import ProjectIcon from "../../atoms/initial/ProjectIcon.vue";
+import ProjectName from "../../atoms/initial/ProjectName.vue";
 export default {
-  name: "InitialPageContent",
+  name: "InitialContent",
   components: {
     ProjectIcon,
     ProjectName,
