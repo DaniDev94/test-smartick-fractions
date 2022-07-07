@@ -1,6 +1,6 @@
 <template>
   <div class="mt-4">
-    <div class="d-flex" :class="{ 'b-title': showAnimationText }">
+    <div class="d-flex">
       <h1 class="b-title font-roboto text-uppercase m-0">Fraccióname</h1>
     </div>
     <div class="d-flex justify-content-center align-items-center mt-1">
@@ -11,18 +11,10 @@
 </template>
 
 <script>
-import { computed } from "vue";
-
 export default {
   name: "ProjectName",
-  props: ["show"],
-  setup(props) {
-    let showAnimationText = computed(() => {
-      return props.show;
-    });
-
+  setup() {
     return {
-      showAnimationText,
     };
   },
 };
@@ -58,6 +50,7 @@ export default {
     background-position: 300% center;
   }
 }
+
 .b-sub-title {
   color: $primary-blue-lightest;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.083);

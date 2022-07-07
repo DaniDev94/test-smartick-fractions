@@ -1,9 +1,9 @@
 <template>
-  <div class="b-content-initial d-flex flex-column justify-content-center align-items-center" :class="{'background-content': show}">
-    <ProjectIcon :class="{'opacity-content': show}" />
-    <ProjectName :show="show" :class="{'opacity-content': show}"/>
+  <!-- Initial page -->
+  <div class="b-content-initial d-flex justify-content-center" :class="{ 'background-content': show }">
+    <InitialPageContent :class="{ 'opacity-content': show }" />
   </div>
-
+  <!-- Home page -->
   <div>
     <p class="text-danger">Hello world...</p>
     <button>Hola</button>
@@ -12,14 +12,12 @@
 
 <script>
 import { ref, onMounted } from "vue";
-import ProjectIcon from "../atoms/ProjectIcon.vue";
-import ProjectName from "../atoms/ProjectName.vue";
+import InitialPageContent from "../molecules/InitialPageContent.vue";
 
 export default {
   name: "HomePage",
   components: {
-    ProjectIcon,
-    ProjectName,
+    InitialPageContent,
   },
   setup() {
     const show = ref(false);
@@ -39,6 +37,7 @@ export default {
 
 <style scoped lang="scss">
 @import "~@/assets/styles/_colors.scss";
+
 .b-content-initial {
   position: absolute;
   top: 0;
@@ -62,6 +61,7 @@ export default {
     height: 0vh;
   }
 }
+
 @keyframes background-content {
   100% {
     height: 0vh;
@@ -73,8 +73,9 @@ export default {
 
 .opacity-content {
   -webkit-animation: remove-opacity 1s ease-out 0.1s both;
-          animation: remove-opacity 1s ease-out 0.1s both;
+  animation: remove-opacity 1s ease-out 0.1s both;
 }
+
 @-webkit-keyframes remove-opacity {
   0% {
     opacity: 1;
@@ -83,6 +84,7 @@ export default {
     opacity: 0;
   }
 }
+
 @keyframes remove-opacity {
   0% {
     opacity: 1;
@@ -91,5 +93,4 @@ export default {
     opacity: 0;
   }
 }
-
 </style>
