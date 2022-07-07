@@ -46,6 +46,7 @@ This commit semantics is a personal implementation based on git flow:
 - SASS
 - Bootstrap
 - Vue router
+- Lazy Loading
 - Mobile first
 - Atomic design
 
@@ -58,7 +59,22 @@ Author: Bootstrap
 ```
 
 ```
+@popperjs/core
+Author: Floating UI
+```
+
+```
 vue-router
 Author: Vuejs
+```
+
+```
+sass and dart-sass
+Author: Sass
+```
+
+```
+sass-loader
+Author: Webpack-contrib
 ```
 

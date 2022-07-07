@@ -1,19 +1,14 @@
 <template>
-  <h1 class="app">Hello World</h1>
+  <div class="min-vh-100 col-12">
+    <router-view />
+  </div>
 </template>
 
 <script>
 export default {
   name: "App",
-  components: {},
 };
 </script>
 
-<style scoped>
-.app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
 </style>
