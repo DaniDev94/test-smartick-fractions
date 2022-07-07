@@ -1,16 +1,95 @@
 <template>
-  <div class="bg-black m-0">
-    <div class="d-flex justify-content-center align-items-center vh-100">
-      <h1 class="text-primary">Ready to start 🎉🎉🎉</h1>
-    </div>
+  <div class="b-content-initial d-flex flex-column justify-content-center align-items-center" :class="{'background-content': show}">
+    <ProjectIcon :class="{'opacity-content': show}" />
+    <ProjectName :show="show" :class="{'opacity-content': show}"/>
+  </div>
+
+  <div>
+    <p class="text-danger">Hello world...</p>
+    <button>Hola</button>
   </div>
 </template>
 
 <script>
+import { ref, onMounted } from "vue";
+import ProjectIcon from "../atoms/ProjectIcon.vue";
+import ProjectName from "../atoms/ProjectName.vue";
+
 export default {
   name: "HomePage",
+  components: {
+    ProjectIcon,
+    ProjectName,
+  },
+  setup() {
+    const show = ref(false);
+
+    onMounted(() => {
+      setTimeout(() => {
+        show.value = true;
+      }, 2000);
+    });
+
+    return {
+      show,
+    };
+  },
 };
 </script>
 
 <style scoped lang="scss">
+@import "~@/assets/styles/_colors.scss";
+.b-content-initial {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: $primary-blue;
+}
+
+// Initial page animation
+.background-content {
+  -webkit-animation: background-content 1.2s ease-out 1s both;
+  animation: background-content 1.2s ease-out 1s both;
+}
+
+@-webkit-keyframes background-content {
+  0% {
+    height: 100vh;
+  }
+  100% {
+    height: 0vh;
+  }
+}
+@keyframes background-content {
+  100% {
+    height: 0vh;
+  }
+  0% {
+    height: 100vh;
+  }
+}
+
+.opacity-content {
+  -webkit-animation: remove-opacity 1s ease-out 0.1s both;
+          animation: remove-opacity 1s ease-out 0.1s both;
+}
+@-webkit-keyframes remove-opacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes remove-opacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 </style>
