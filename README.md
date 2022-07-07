@@ -45,11 +45,20 @@ This commit semantics is a personal implementation based on git flow:
 - BEM
 - SASS
 - Bootstrap
-- Atomic design
+- Vue router
 - Mobile first
+- Atomic design
 
 
 ### Libraries and external docs
 
-Waiting for implementation...
+```
+bootstrap
+Author: Bootstrap
+```
+
+```
+vue-router
+Author: Vuejs
+```
 
