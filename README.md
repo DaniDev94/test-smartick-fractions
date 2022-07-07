@@ -49,6 +49,7 @@ This commit semantics is a personal implementation based on git flow:
 - Lazy Loading
 - Mobile first
 - Atomic design
+- Composition API
 
 
 ### Libraries and external docs
