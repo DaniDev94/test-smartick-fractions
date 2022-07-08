@@ -1,23 +1,24 @@
 <template>
   <!-- Initial page -->
-  <div class="b-content-initial d-flex justify-content-center" :class="{ 'background-content': show }">
+  <!-- <div class="b-content-initial d-flex justify-content-center" :class="{ 'background-content': show }">
     <InitialPageContent :class="{ 'opacity-content': show }" />
-  </div>
+  </div> -->
   <!-- Home page -->
   <div>
-    <p class="text-danger">Hello world...</p>
-    <button>Hola</button>
+    
   </div>
 </template>
 
 <script>
 import { ref, onMounted } from "vue";
-import InitialPageContent from "../molecules/initial/InitialContent.vue";
+// import InitialPageContent from "../molecules/initial/InitialContent.vue";
+// import LoadingSpinner from "../atoms/common/LoadingSpinner.vue";
 
 export default {
   name: "HomePage",
   components: {
-    InitialPageContent,
+    // InitialPageContent,
+    // LoadingSpinner
   },
   setup() {
     const show = ref(false);
