@@ -1,24 +1,22 @@
 <template>
   <!-- Initial page -->
-  <!-- <div class="b-content-initial d-flex justify-content-center" :class="{ 'background-content': show }">
-    <InitialPageContent :class="{ 'opacity-content': show }" />
-  </div> -->
-  <!-- Home page -->
-  <div>
-    
+  <div class="b-content-initial d-flex justify-content-center" :class="{ 'background-content': show }">
+    <InitialMain :class="{ 'opacity-content': show }" />
   </div>
+  <!-- Home page -->
+  <HomeContent/>
 </template>
 
 <script>
 import { ref, onMounted } from "vue";
-// import InitialPageContent from "../molecules/initial/InitialContent.vue";
-// import LoadingSpinner from "../atoms/common/LoadingSpinner.vue";
+import InitialMain from "../molecules/initial/InitialMain.vue";
+import HomeContent from "../organisms/home/HomeContent.vue";
 
 export default {
   name: "HomePage",
   components: {
-    // InitialPageContent,
-    // LoadingSpinner
+    InitialMain,
+    HomeContent
   },
   setup() {
     const show = ref(false);
@@ -37,7 +35,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "~@/assets/styles/_colors.scss";
+@import "~@/assets/styles/index.scss";
 
 .b-content-initial {
   position: absolute;
@@ -94,4 +92,5 @@ export default {
     opacity: 0;
   }
 }
+
 </style>

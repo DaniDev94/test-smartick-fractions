@@ -47,9 +47,10 @@ This commit semantics is a personal implementation based on git flow:
 - Bootstrap
 - Vue router
 - Lazy Loading
-- Mobile first
+- Desktop first
 - Atomic design
 - Composition API
+- Options API
 
 
 ### Libraries and external docs

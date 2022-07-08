@@ -9,7 +9,7 @@
 import ProjectIcon from "../../atoms/initial/ProjectIcon.vue";
 import ProjectName from "../../atoms/initial/ProjectName.vue";
 export default {
-  name: "InitialContent",
+  name: "InitialMain",
   components: {
     ProjectIcon,
     ProjectName,
