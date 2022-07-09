@@ -21,9 +21,9 @@ export default {
 .b-content-icon {
   padding: 3rem;
   background-color: $secondary-yellow-dark;
-  border: 0.5rem solid $primary-blue-lightest;
+  border: 0.5rem solid #ffffff;
   border-radius: 10rem;
-  box-shadow: $secondary-grey-dark 0px 0px 0px 2px inset,$secondary-grey-dark 0px 0px 0px 2.2px;
+  box-shadow: $primary-blue-lightest 0px 0px 0px 1px inset,$secondary-grey-dark 0px 0px 0px 2px;
   &__img {
     width: 100%;
     min-width: 180px;

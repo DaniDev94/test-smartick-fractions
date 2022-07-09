@@ -38,12 +38,12 @@ export default {
 @import "~@/assets/styles/index.scss";
 
 .b-content-initial {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: $primary-blue;
+  background: linear-gradient(16deg, $primary-blue-medium-soft 0%, $primary-blue 80%);
 }
 
 // Initial page animation

@@ -38,7 +38,7 @@ export default {
   background-size: 200% auto;
   background-clip: text;
   color: #fff;
-  -webkit-text-stroke: 2px $secondary-grey-dark ;
+  -webkit-text-stroke: 2px $secondary-grey-dark;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   animation: textclip 3.3s linear infinite;
@@ -52,7 +52,7 @@ export default {
 }
 
 .b-sub-title {
-  color: $primary-blue-lightest;
+  color: #ffffff;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.083);
   font-size: 1.3rem;
   font-weight: 700;

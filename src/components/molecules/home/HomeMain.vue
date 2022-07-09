@@ -12,30 +12,59 @@
         </p>
         <a class="text-decoration-none" href="https://www.smartick.es/?f=1" target="_blank"
           ><button class="btn-info-custom">
-            <img class="btn-info-custom__img" src="../../../assets/images/icons/go.svg" alt="go-icon" width="60" /></button
+            <img
+              class="btn-info-custom__img"
+              src="../../../assets/images/icons/go.svg"
+              alt="go-icon"
+              width="60"
+            /></button
         ></a>
       </div>
     </div>
     <div class="mt-5">
-      <audio ref="startGame">
+      <audio ref="gameStartSound">
         <source :src="require('@/assets/sounds/start.mp3')" type="audio/mpeg" />
       </audio>
-      <button @click="startGame.play()" class="btn-custom-start font-cairo text-center text-capitalize">Start</button>
+      <button @click="readyToNavigate" class="btn-custom-start font-cairo text-center text-capitalize">Start</button>
     </div>
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { ref, watch } from "vue";
 
 export default {
   name: "HomeMain",
   components: {},
   setup() {
-    const startGame = ref(null);
+    const gameStartSound = ref(null);
+    const isLoading = ref(null);
+
+    //Delay loading navigation
+    const goNavigate = ref(false);
+    const router = useRouter();
+
+    const navigate = () => {
+      if (goNavigate.value === false) goNavigate.value = true;
+    };
+
+    const readyToNavigate = () => {
+      gameStartSound.value.play();
+      setTimeout(navigate, 700);
+    };
+
+    watch(() => {
+      if (goNavigate.value === true) {
+        router.push({ name: "gamePage" });
+        isLoading.value = true;
+      }
+    });
 
     return {
-      startGame,
+      gameStartSound,
+      isLoading,
+      readyToNavigate,
     };
   },
 };

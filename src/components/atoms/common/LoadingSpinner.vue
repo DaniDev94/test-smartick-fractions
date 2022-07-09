@@ -1,5 +1,5 @@
 <template>
-  <div v-if="load" class="b-content d-flex align-items-center justify-content-center vw-100 vh-100 font-roboto py-5 px-5">
+  <div v-if="load" class="d-flex align-items-center justify-content-center vw-100 vh-100 font-roboto py-5 px-5">
     <div class="b-content-spinner d-flex">
       <div class="b-content-spinner__1">
         <div class="d-flex flex-column align-items-start mt-3">
@@ -40,13 +40,6 @@ export default {
 
 <style scoped lang="scss">
 @import "~@/assets/styles/index.scss";
-
-.b-content {
-  background-image: url("@/assets/images/layout/cloud-background-loading.png");
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 .b-content-spinner {
   background-color: rgb(255, 255, 255);
