@@ -1,5 +1,7 @@
 <template>
-  <div class="d-flex align-items-center justify-content-center flex-column w-100 mt-4 py-3 px-5">
+  <div
+    class="b-padding-content d-flex align-items-center justify-content-center flex-column w-100 mt-sm-1 mt-4 py-3 px-sm-0 px-5"
+  >
     <div class="b-content-main bg-white col-12 col-lg-9 m-2 py-4 px-3 d-flex justify-content-center font-cairo">
       <div class="b-info-text text-center m-2 p-3">
         <h2 class="b-info-text__title font-roboto mb-4">Te damos la bienvenida a Fraccióname</h2>
@@ -21,7 +23,7 @@
         ></a>
       </div>
     </div>
-    <div class="mt-5">
+    <div class="btn-margin-custom mt-5">
       <audio ref="gameStartSound">
         <source :src="require('@/assets/sounds/start.mp3')" type="audio/mpeg" />
       </audio>
@@ -55,6 +57,7 @@ export default {
 
     watch(() => {
       if (goNavigate.value === true) {
+        window.scrollTo(0, 0);
         router.push({ name: "gamePage" });
       }
     });
@@ -158,5 +161,34 @@ export default {
 .btn-custom-start:active {
   box-shadow: $other-orange-dark 0 3px 7px inset;
   transform: translateY(2px);
+}
+
+@media (max-width: 783px) {
+  .b-content-main {
+    padding-bottom: 7px !important;
+  }
+  .b-info-text {
+    &__title {
+      font-size: 2rem;
+    }
+  }
+  .btn-custom-start {
+    padding: 3px 100px !important;
+    font-size: 2rem;
+  }
+  .btn-margin-custom {
+    margin-top: 1.4rem !important;
+  }
+}
+@media (max-width: 576px) {
+  .b-padding-content {
+    padding: 0 !important;
+  }
+  .btn-info-custom {
+    padding: 6px 20px !important;
+    &__img {
+      width: 2.4rem;
+    }
+  }
 }
 </style>

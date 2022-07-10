@@ -14,8 +14,7 @@
 export default {
   name: "ProjectName",
   setup() {
-    return {
-    };
+    return {};
   },
 };
 </script>
@@ -57,5 +56,11 @@ export default {
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 1px;
+}
+
+@media (max-width: 576px) {
+  .b-title {
+    font-size: 3rem;
+  }
 }
 </style>
