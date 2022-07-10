@@ -5,30 +5,30 @@
     </div>
     <div class="b-content-header__audio d-flex justify-content-between">
       <audio ref="playAmbientSound" loop>
-        <source :src="require('@/assets/sounds/ambiental.mp3')" type="audio/mpeg" />
+        <source :src="require('@/assets/sounds/ambiental.mp3')" type="audio/mp3" />
       </audio>
       <div class="d-flex align-items-center">
         <img class="audio-img-info" src="@/assets/images/icons/question.svg" alt="question-icon" />
-        <p class="audio-txt-info m-0 ms-3 text-nowrap">Prueba a darle a play para poner música a tus ejercicios.</p>
+        <p class="audio-txt-info m-0 ms-3 text-nowrap">Prueba a darle a play para poner música a tu introducción.</p>
       </div>
       <div class="d-flex justify-content-around me-4">
         <button class="btn-audio-custom mx-3" @click="playAmbientSound.play()">
-          <img class="btn-audio-custom__icons" src="@/assets/images/icons/audio/audio-play.svg" alt="smartick-blue" />
+          <img class="btn-audio-custom__icons" src="@/assets/images/icons/audio/audio-play.svg" alt="audio-play" />
         </button>
         <button class="btn-audio-custom mx-3" @click="playAmbientSound.pause()">
-          <img class="btn-audio-custom__icons" src="@/assets/images/icons/audio/audio-pause.svg" alt="smartick-blue" />
+          <img class="btn-audio-custom__icons" src="@/assets/images/icons/audio/audio-pause.svg" alt="audio-pause" />
         </button>
         <button
           class="btn-audio-custom mx-3"
           @click="playAmbientSound.play === true ? '' : (playAmbientSound.volume += 0.1)"
         >
-          <img class="btn-audio-custom__icons" src="@/assets/images/icons/audio/audio-plus.svg" alt="smartick-blue" />
+          <img class="btn-audio-custom__icons" src="@/assets/images/icons/audio/audio-plus.svg" alt="audio-plus" />
         </button>
         <button
           class="btn-audio-custom mx-3"
           @click="playAmbientSound.play === true ? '' : (playAmbientSound.volume -= 0.1)"
         >
-          <img class="btn-audio-custom__icons" src="@/assets/images/icons/audio/audio-minus.svg" alt="smartick-blue" />
+          <img class="btn-audio-custom__icons" src="@/assets/images/icons/audio/audio-minus.svg" alt="audio-minus" />
         </button>
       </div>
     </div>

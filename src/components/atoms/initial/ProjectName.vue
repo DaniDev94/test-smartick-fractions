@@ -29,9 +29,9 @@ export default {
   background-image: linear-gradient(
     -225deg,
     $other-beige 17%,
-    $secondary-yellow 47%,
+    $other-orange-soft 47%,
     $other-green-soft 67%,
-    $secondary-yellow-lightest 100%
+    $secondary-yellow 100%
   );
   background-size: auto auto;
   background-clip: border-box;

@@ -4,11 +4,11 @@
       <div class="b-info-text text-center m-2 p-3">
         <h2 class="b-info-text__title font-roboto mb-4">Te damos la bienvenida a Fraccióname</h2>
         <p class="b-info-text__txt mb-1">
-          Con este juego interactivo podrás practicar matemáticas de una forma fácil, ágil y divertida.
+          Con este juego interactivo podrás practicar fracciones de una forma fácil, ágil y divertida.
         </p>
         <p class="b-info-text__txt">Aprender a fraccionar nunca fue tan sencillo.</p>
         <p class="b-info-text__txt mb-4">
-          Accede a muchas más formas de aprender matemáticas y lectura haciendo clic en el siguiente botón.
+          Accede muchas más formas de aprender matemáticas y lectura haciendo clic en el siguiente botón.
         </p>
         <a class="text-decoration-none" href="https://www.smartick.es/?f=1" target="_blank"
           ><button class="btn-info-custom">
@@ -39,7 +39,6 @@ export default {
   components: {},
   setup() {
     const gameStartSound = ref(null);
-    const isLoading = ref(null);
 
     //Delay loading navigation
     const goNavigate = ref(false);
@@ -57,13 +56,11 @@ export default {
     watch(() => {
       if (goNavigate.value === true) {
         router.push({ name: "gamePage" });
-        isLoading.value = true;
       }
     });
 
     return {
       gameStartSound,
-      isLoading,
       readyToNavigate,
     };
   },
@@ -134,7 +131,6 @@ export default {
   padding: 4px 120px !important;
   display: inline-flex;
   align-items: center;
-  padding: 0 16px;
   border: 0;
   border-radius: 6px;
   box-sizing: border-box;
@@ -147,9 +143,6 @@ export default {
     rgba(111, 80, 58, 0.5) 0 -3px 0 inset;
   cursor: pointer;
   transition: box-shadow 0.15s, transform 0.15s;
-  &__img {
-    width: 2.7rem;
-  }
 }
 
 .btn-custom-start:focus {
