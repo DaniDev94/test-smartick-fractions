@@ -3,7 +3,7 @@
     <div class="b-content-header__logo">
       <img class="custom-width-logo" src="@/assets/images/logos/smartick-blue.png" alt="smartick-blue" />
     </div>
-    <div class="b-content-header__audio d-flex justify-content-between">
+    <div class="b-content-header__audio d-flex flex-wrap justify-content-md-center justify-content-between mx-4">
       <audio ref="playAmbientSound" loop>
         <source :src="require('@/assets/sounds/ambiental.mp3')" type="audio/mp3" />
       </audio>
@@ -11,7 +11,7 @@
         <img class="audio-img-info" src="@/assets/images/icons/question.svg" alt="question-icon" />
         <p class="audio-txt-info m-0 ms-3 text-nowrap">Prueba a darle a play para poner música a tu introducción.</p>
       </div>
-      <div class="d-flex justify-content-around me-4">
+      <div class="b-audio-buttons d-flex justify-content-around me-4">
         <button class="btn-audio-custom mx-3" @click="playAmbientSound.play()">
           <img class="btn-audio-custom__icons" src="@/assets/images/icons/audio/audio-play.svg" alt="audio-play" />
         </button>
@@ -64,7 +64,6 @@ export default {
   }
   &__audio {
     width: 100%;
-    max-width: 57rem;
   }
 }
 
@@ -134,13 +133,74 @@ export default {
 }
 
 .btn-audio-custom:hover {
-  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
-    $secondary-purple 0 -3px 0 inset;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, $secondary-purple 0 -3px 0 inset;
   transform: translateY(-2px);
 }
 
 .btn-audio-custom:active {
   box-shadow: $secondary-purple-dark 0 3px 7px inset;
   transform: translateY(2px);
+}
+
+@media (max-width: 1330px) {
+  .audio-img-info {
+    display: none;
+  }
+  .audio-txt-info {
+    margin: 0 0 13px 0 !important;
+    font-size: 1.1rem;
+  }
+  .b-audio-buttons {
+    margin: 0 !important;
+  }
+  .b-content-header {
+    &__audio {
+      margin: 1rem 4.3rem !important;
+    }
+  }
+}
+
+@media (max-width: 1090px) {
+  .audio-txt-info {
+    font-size: 1rem;
+  }
+  .b-content-header {
+    &__audio {
+      margin: 1rem 0rem !important;
+    }
+  }
+  .btn-audio-custom {
+    height: 40px;
+    &__icons {
+      min-width: 1.7rem;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .audio-txt-info {
+    white-space: normal !important;
+    text-align: center;
+  }
+  .b-content-header {
+    &__audio {
+      margin: 1rem 2rem !important;
+    }
+  }
+  .custom-width-logo {
+    width: 16rem;
+  }
+}
+
+@media (max-width: 783px) {
+  .b-content-header {
+    justify-content: center !important;
+    &__logo {
+      border-right: none;
+    }
+    &__audio {
+      display: none !important;
+    }
+  }
 }
 </style>
