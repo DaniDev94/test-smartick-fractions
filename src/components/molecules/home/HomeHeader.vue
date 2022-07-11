@@ -153,7 +153,7 @@ export default {
   .b-audio-buttons {
     margin: 0 !important;
   }
-  .b-content-header {
+  .b-header-content {
     &__audio {
       margin: 1rem 4.3rem !important;
     }
@@ -164,7 +164,7 @@ export default {
   .audio-txt-info {
     font-size: 1rem;
   }
-  .b-content-header {
+  .b-header-content {
     &__audio {
       margin: 1rem 0rem !important;
     }
@@ -182,7 +182,7 @@ export default {
     white-space: normal !important;
     text-align: center;
   }
-  .b-content-header {
+  .b-header-content {
     &__audio {
       margin: 1rem 2rem !important;
     }
@@ -193,7 +193,7 @@ export default {
 }
 
 @media (max-width: 783px) {
-  .b-content-header {
+  .b-header-content {
     justify-content: center !important;
     &__logo {
       border-right: none;
