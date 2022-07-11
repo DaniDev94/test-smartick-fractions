@@ -1,9 +1,9 @@
 <template>
-  <div class="b-content-header bg-white d-flex justify-content-between align-items-center font-cairo">
-    <div class="b-content-header__logo">
+  <div class="b-header-content bg-white d-flex justify-content-between align-items-center font-cairo">
+    <div class="b-header-content__logo">
       <img class="custom-width-logo" src="@/assets/images/logos/smartick-blue.png" alt="smartick-blue" />
     </div>
-    <div class="b-content-header__audio d-flex flex-wrap justify-content-md-center justify-content-between mx-4">
+    <div class="b-header-content__audio d-flex flex-wrap justify-content-md-center justify-content-between mx-4">
       <audio ref="playAmbientSound" loop>
         <source :src="require('@/assets/sounds/ambiental.mp3')" type="audio/mp3" />
       </audio>
@@ -54,7 +54,7 @@ export default {
 <style scoped lang="scss">
 @import "~@/assets/styles/index.scss";
 
-.b-content-header {
+.b-header-content {
   border-radius: 0.6rem;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
     rgba(0, 0, 0, 0.2) 0px -3px 0px inset;

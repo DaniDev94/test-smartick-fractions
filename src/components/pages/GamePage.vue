@@ -12,13 +12,7 @@
     <div class="b-content__game bg-white col-lg col-lg-12 mb-4">
       <div class="d-flex justify-content-center align-items-center flex-column p-4">
         <!-- Fraction -->
-        <div class="my-md-1 my-xl-2 py-3">
-          <div class="b-fraction-content d-flex flex-column justify-content-center align-items-center mt-md-2 mt-xl-3">
-            <span class="b-fraction-content__num">{{ randomNumerator }}</span>
-            <div class="b-fraction-content__line"></div>
-            <span class="b-fraction-content__num">{{ randomDenominator }}</span>
-          </div>
-        </div>
+        <RandomFraction :numerator="randomNumerator" :denominator="randomDenominator" />
         <!-- Fraction box -->
         <div class="container mt-4">
           <div class="row d-flex justify-content-center">
@@ -122,46 +116,46 @@
   </div>
 </template>
 
+
 <script>
+import RandomFraction from "../atoms/game/RandomFraction.vue";
+
 export default {
   name: "GamePage",
-  components: {},
+  components: { RandomFraction },
   data() {
     return {
-      // loading: false,
       show: false,
-      initial: false,
       error: false,
-      goNavigate: false,
       success: false,
       showInfoSuccess: false,
       boxNumerator: 0,
       boxDenominator: 0,
-      randomNumerator: 1,
-      randomDenominator: 2,
+      randomNumerator: 0,
+      randomDenominator: 0,
     };
   },
   mounted() {
-    if (this.generateRandomFraction()) {
-      this.reduceFraction(this.randomNumerator, this.randomDenominator);
-    }
+    this.generateRandomFraction();
     setTimeout(() => {
       this.show = true;
     }, 700);
   },
   methods: {
-    // Function 'reduceFraction' obtained from internet
-    reduceFraction(numerator, denominator) {
-      var gcd = function gcd(a, b) {
+    generateRandomFraction() {
+      let numerator = Math.floor(Math.random() * 10 - 1 + 1) + 1;
+      let denominator = Math.floor(Math.random() * (Math.floor(10) - Math.ceil(2) + 1)) + Math.ceil(2);
+      let gcd = function gcd(a, b) {
         return b ? gcd(b, a % b) : a;
       };
       gcd = gcd(numerator, denominator);
-      return [numerator / gcd, denominator / gcd];
-    },
-    generateRandomFraction() {
-      const numerator = Math.floor(Math.random() * (10 - this.randomNumerator + 1)) + this.randomNumerator;
-      this.randomDenominator = Math.floor(Math.random() * (10 - this.randomDenominator + 1)) + this.randomDenominator;
-      if (numerator <= this.randomDenominator) this.randomNumerator = numerator;
+      if (denominator > numerator) {
+        this.randomDenominator = denominator / gcd;
+        this.randomNumerator = numerator / gcd;
+      } else {
+        this.randomNumerator = denominator / gcd;
+        this.randomDenominator = numerator / gcd;
+      }
     },
     addBoxDenominator() {
       this.boxDenominator += 1;
@@ -212,6 +206,7 @@ export default {
 };
 </script>
 
+
 <style scoped lang="scss">
 @import "~@/assets/styles/index.scss";
 
@@ -258,112 +253,11 @@ export default {
   }
 }
 
-.b-fraction-content {
-  width: 15rem;
-  height: 15rem;
-  background-image: radial-gradient(100% 100% at 100% 0, $other-orange-soft 0, $other-orange 100%);
-  border: 0.5rem solid #ffffff;
-  border-radius: 10rem;
-  box-shadow: $primary-blue-lightest 0px 0px 0px 1px inset, $secondary-grey-dark 0px 0px 0px 2px;
-  -webkit-animation: scale-up-center 1.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  animation: scale-up-center 1.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  &__num {
-    color: #fff;
-    -webkit-text-stroke: 2px $secondary-grey-dark;
-    font-size: 4rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-  }
-  &__line {
-    width: 100%;
-    max-width: 7rem;
-    padding: 2.2px;
-    background-color: #ffffff;
-    border: 2px solid $secondary-grey-dark;
-  }
-}
-
-@media (max-width: 1200px) {
-  .b-fraction-content {
-    width: 13.5rem;
-    height: 13.5rem;
-    &__num {
-      font-size: 3.5rem;
-    }
-    &__line {
-      max-width: 6rem;
-      padding: 2.1px;
-    }
-  }
-}
-
-@media (max-width: 992px) {
-  .b-fraction-content {
-    width: 12rem;
-    height: 12rem;
-    &__num {
-      font-size: 3.2rem;
-    }
-    &__line {
-      max-width: 5.3rem;
-      padding: 2px;
-    }
-  }
-}
-
-@media (max-width: 575px) {
-  .b-fraction-content {
-    width: 10rem;
-    height: 10rem;
-    &__num {
-      font-size: 2.7rem;
-    }
-    &__line {
-      max-width: 4.9rem;
-      padding: 1.8px;
-    }
-  }
-}
-
-// Animation for random fraction
-@-webkit-keyframes scale-up-center {
-  0% {
-    -webkit-transform: scale(0.2);
-    transform: scale(0.2);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-@keyframes scale-up-center {
-  0% {
-    -webkit-transform: scale(0.2);
-    transform: scale(0.2);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-  }
-}
-
 .custom-title {
   color: $primary-blue;
   font-size: 2rem;
   font-weight: 600;
   letter-spacing: 1.7px;
-}
-
-@media (max-width: 992px) {
-  .custom-title {
-    font-size: 1.6rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .custom-title {
-    font-size: 1.4rem;
-  }
 }
 
 // Fraction box
@@ -426,32 +320,6 @@ export default {
   }
 }
 
-// Media queries for fraction box
-@media (max-width: 1200px) {
-  .initial-box-border,
-  .success-box-border,
-  .error-box-border {
-    height: 25rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .initial-box-border,
-  .success-box-border,
-  .error-box-border {
-    height: 20.7rem;
-  }
-}
-
-@media (max-width: 575px) {
-  .initial-box-border,
-  .success-box-border,
-  .error-box-border {
-    height: 16.8rem;
-    margin-bottom: 1rem;
-  }
-}
-
 .division-denominator-box {
   width: 20%;
   min-height: 12rem;
@@ -470,28 +338,6 @@ export default {
   background-image: radial-gradient(100% 100% at 100% 0, $table-numerator 0, $primary-blue 100%);
   border-radius: 1rem;
   display: inline-block;
-}
-
-// Media queries for numerator and denominator division box
-@media (max-width: 1200px) {
-  .division-denominator-box,
-  .division-numerator-box {
-    min-height: 11.1rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .division-denominator-box,
-  .division-numerator-box {
-    min-height: 9rem;
-  }
-}
-
-@media (max-width: 575px) {
-  .division-denominator-box,
-  .division-numerator-box {
-    min-height: 7rem;
-  }
 }
 
 .b-buttons-content {
@@ -514,60 +360,6 @@ export default {
   }
 }
 
-@media (max-width: 1200px) {
-  .b-buttons-content {
-    padding: 0.3rem 3rem 1.2rem 3rem;
-    &__title {
-      font-size: 1.5rem;
-    }
-  }
-}
-
-@media (max-width: 1030px) {
-  .b-buttons-content {
-    padding: 0.3rem 1rem 1.2rem 1rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .b-buttons-content {
-    width: 60%;
-    margin: 0.7rem 0;
-    &__title {
-      font-size: 2rem;
-    }
-  }
-}
-
-@media (max-width: 767px) {
-  .b-buttons-content {
-    width: 100%;
-    margin: 0.7rem 0;
-    &__title {
-      font-size: 2rem;
-    }
-  }
-}
-
-@media (max-width: 575px) {
-  .b-buttons-content {
-    width: 80%;
-    margin: 0.7rem 0;
-    &__title {
-      font-size: 1.8rem;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .b-buttons-content {
-    width: 100% !important;
-    &__title {
-      font-size: 1.7rem;
-    }
-  }
-}
-
 .split-button {
   padding: 0.5rem 2rem;
   margin: 1px 7px;
@@ -582,14 +374,6 @@ export default {
   &__icon {
     width: 2rem;
     padding: 1px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .split-button {
-    &__icon {
-      width: 1.7rem;
-    }
   }
 }
 
@@ -633,33 +417,6 @@ export default {
   }
 }
 
-@media (max-width: 1200px) {
-  .b-success-text {
-    height: 60px;
-    &__word {
-      font-size: 3rem;
-    }
-  }
-}
-
-@media (max-width: 992px) {
-  .b-success-text {
-    height: 40px;
-    &__word {
-      font-size: 2.2rem;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .b-success-text {
-    height: 20px;
-    &__word {
-      font-size: 2rem;
-    }
-  }
-}
-
 .btn-check-exercise {
   padding: 4px 120px !important;
   display: inline-flex;
@@ -679,20 +436,6 @@ export default {
   &__icon {
     width: 3.5rem;
     padding: 3px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .btn-check-exercise {
-    padding: 4px 100px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .btn-check-exercise {
-    &__icon {
-      width: 2.7rem;
-    }
   }
 }
 
@@ -744,21 +487,133 @@ export default {
   transform: translateY(2px);
 }
 
+
+// All media queries
 @media (max-width: 1200px) {
+  .initial-box-border,
+  .success-box-border,
+  .error-box-border {
+    height: 25rem;
+  }
+  .division-denominator-box,
+  .division-numerator-box {
+    min-height: 11.1rem;
+  }
+  .b-buttons-content {
+    padding: 0.3rem 3rem 1.2rem 3rem;
+    &__title {
+      font-size: 1.5rem;
+    }
+  }
+  .split-button {
+    &__icon {
+      width: 1.7rem;
+    }
+  }
+  .b-success-text {
+    height: 60px;
+    &__word {
+      font-size: 3rem;
+    }
+  }
+  .btn-check-exercise {
+    padding: 4px 100px !important;
+  }
   .btn-next-exercise {
     padding: 2px 90px !important;
     font-size: 2.2rem;
   }
 }
 
+@media (max-width: 1030px) {
+  .b-buttons-content {
+    padding: 0.3rem 1rem 1.2rem 1rem;
+  }
+}
+
 @media (max-width: 992px) {
+  .custom-title {
+    font-size: 1.6rem;
+  }
+  .initial-box-border,
+  .success-box-border,
+  .error-box-border {
+    height: 20.7rem;
+  }
+  .division-denominator-box,
+  .division-numerator-box {
+    min-height: 9rem;
+  }
+  .b-buttons-content {
+    width: 60%;
+    margin: 0.7rem 0;
+    &__title {
+      font-size: 2rem;
+    }
+  }
+  .b-success-text {
+    height: 40px;
+    &__word {
+      font-size: 2.2rem;
+    }
+  }
   .btn-next-exercise {
     padding: 1px 70px !important;
     font-size: 2.2rem;
   }
 }
 
+@media (max-width: 767px) {
+  .b-buttons-content {
+    width: 100%;
+    margin: 0.7rem 0;
+    &__title {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .initial-box-border,
+  .success-box-border,
+  .error-box-border {
+    height: 16.8rem;
+    margin-bottom: 1rem;
+  }
+  .division-denominator-box,
+  .division-numerator-box {
+    min-height: 7rem;
+  }
+  .b-buttons-content {
+    width: 80%;
+    margin: 0.7rem 0;
+    &__title {
+      font-size: 1.8rem;
+    }
+  }
+}
+
 @media (max-width: 480px) {
+  .custom-title {
+    font-size: 1.4rem;
+  }
+  .b-buttons-content {
+    width: 100% !important;
+    &__title {
+      font-size: 1.7rem;
+    }
+  }
+  .b-success-text {
+    height: 20px;
+    &__word {
+      font-size: 2rem;
+    }
+  }
+  .btn-check-exercise {
+    &__icon {
+      width: 2.7rem;
+    }
+  }
   .btn-next-exercise {
     padding: 1px 65px !important;
     font-size: 1.9rem;
