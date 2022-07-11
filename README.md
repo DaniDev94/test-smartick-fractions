@@ -40,12 +40,30 @@ This commit semantics is a personal implementation based on git flow:
 - RELEASE: version closure (component, section or project)
 
 
+### Conclusion and points to consider
+
+It has been quite an adventure to be able to develop this little interactive fraction game for children and I am very happy with the final result. It has been many hours of work, but I would certainly do it again.
+The following points are worth noting:
+
+    1) - Minimum accepted resolution:
+
+        To ensure a smooth experience and to be able to view the project on most screens, it is recommended not to go below 380px resolution.
+
+    2) - Componetization and atomic design:
+
+        I built the game view in a more scalable way, taking full advantage of atomic design. 
+
+    3) - Repetition error in sound effects when add of delete numerator or denominator:
+
+        If we add consecutively and quickly either of these two elements, the sound suffers a delay because the pulsing is faster than the sounds load. 
+
+
 ### Technologies/methodologies used
 
 - BEM
 - SASS
 - Bootstrap
-- Vue router
+- Vue-router
 - Lazy Loading
 - Desktop first
 - Atomic design
@@ -79,4 +97,3 @@ Author: Sass
 sass-loader
 Author: Webpack-contrib
 ```
-
