@@ -1,6 +1,6 @@
 <template>
   <!-- Loading new fraction -->
-  <div id="top" class="b-content-initial d-flex justify-content-center" :class="{ 'background-content': show }" />
+  <!-- <div id="top" class="b-content-initial d-flex justify-content-center" :class="{ 'background-content': show }" /> -->
   <!-- Game -->
   <div class="b-content w-100 min-vh-100 py-3 px-4">
     <div class="m-2 p-1">
@@ -18,7 +18,7 @@
           <div class="row d-flex justify-content-center">
             <div class="col-md-10 col-md-offset-1">
               <div
-                class="p-3"
+                class="d-flex p-3"
                 :class="[
                   success === true ? 'success-box-border' : 'initial-box-border',
                   error === true ? 'error-box-border' : 'initial-box-border',
@@ -27,6 +27,7 @@
                 <div
                   v-for="(box, index) in boxDenominator"
                   :key="index"
+                  class="w-100"
                   :class="boxNumerator <= index ? 'division-denominator-box' : 'division-numerator-box'"
                 ></div>
               </div>
