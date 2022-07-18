@@ -1,6 +1,6 @@
 <template>
   <!-- Loading new fraction -->
-  <!-- <div id="top" class="b-content-initial d-flex justify-content-center" :class="{ 'background-content': show }" /> -->
+  <div id="top" class="b-content-initial d-flex justify-content-center" :class="{ 'background-content': show }" />
   <!-- Game -->
   <div class="b-content w-100 min-vh-100 py-3 px-4">
     <div class="m-2 p-1">
